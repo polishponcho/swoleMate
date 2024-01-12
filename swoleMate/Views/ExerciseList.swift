@@ -27,6 +27,7 @@ struct ExerciseList: View {
                         }
                     }
                 }
+                .listStyle(.inset)
             }
         }
         .navigationBarItems(

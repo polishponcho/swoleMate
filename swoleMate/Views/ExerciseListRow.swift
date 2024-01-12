@@ -12,13 +12,19 @@ struct ExerciseListRow: View {
     var exercise: Exercise
     
     var body: some View {
-        HStack {
+        VStack {
             Text(exercise.name)
-                .padding()
+                .font(.title)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 10)
+            Text(exercise.equipment)
+                .font(.subheadline)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 10)
         }
     }
 }
 
-//#Preview {
-//    ExerciseListRow(exercise: Exercise(id: "1", name: "Squat", equipment: "Dumbbell", movement: "Pull", targetMuscle: "Legs", type: "Weight Lifting"))
-//}
+#Preview {
+    ExerciseListRow(exercise: Exercise(id: "1", name: "Squat", equipment: "Dumbbell", movement: "Pull", targetMuscle: "Legs", type: "Weight Lifting"))
+}
