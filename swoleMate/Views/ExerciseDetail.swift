@@ -14,14 +14,18 @@ struct ExerciseDetail: View {
     @State private var reps: String = ""
     @State private var weight: String = ""
     @State var exercise: Exercise
+    var records: [Record] {
+        return recordVM.records.filter{$0.exercise.id == exercise.id}
+    }
     
     var body: some View {
         VStack {
-            Text("Exercise Details...")
+            Text(exercise.name)
                 .padding()
             List {
-                ForEach(recordVM.records.indices, id: \.self) { index in
-                    Text("Reps: \(recordVM.records[index].reps)/Weight: \(recordVM.records[index].weight)")
+                ForEach(records.indices, id: \.self) { index in
+                    Text("Reps: \(records[index].reps)/Weight: \(records[index].weight)")
+                    
                 }
                 .onDelete(perform: recordVM.deleteRecord)
             }
