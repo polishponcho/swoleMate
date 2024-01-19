@@ -58,7 +58,7 @@ struct ExerciseDetail: View {
     
     func saveButtonPressed() {
         recordVM.addRecord(completeDate: Date.now, exercise: exercise, reps: Int(reps)!, weight: Int(weight)!)
-        presentationMode.wrappedValue.dismiss()
+        showAddRecordView = false
     }
 }
 
